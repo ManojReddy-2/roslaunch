@@ -1,0 +1,11 @@
+<!-- Potential Field Controller -->
+  <node name="potential_field" pkg="com_world" type="potential_field.py" output="screen"/>
+  
+  
+   <!-- Kinematic Controller -->
+  <node name="kinematic_controller" pkg="com_world" type="kinematic_controller.py" output="screen"/>
+
+
+
+ <!-- ✅ Potential Field Obstacle Avoidance -->
+  <node name="potential_field" pkg="com_world" type="potential_field.py" output="screen"/>

@@ -1,0 +1,21 @@
+<launch>
+  <!-- Load Gazebo with your custom world -->
+  <arg name="world_file" default="$(find com_world)/world/com.world"/>
+  <arg name="x" default="0.0"/>
+  <arg name="y" default="0.0"/>
+  <arg name="z" default="0.01"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(arg world_file)"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+  </include>
+
+  <!-- Spawn TurtleBot3 Burger -->
+  <param name="robot_description" command="$(find xacro)/xacro '$(find turtlebot3_description)/urdf/turtlebot3_burger.urdf.xacro'" />
+
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen"
+        args="-param robot_description -urdf -model turtlebot3_burger -x $(arg x) -y $(arg y) -z $(arg z)" />
+
+</launch>
+
